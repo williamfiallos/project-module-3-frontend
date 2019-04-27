@@ -4,6 +4,7 @@ import './App.css';
 import { Switch, NavLink, Route } from 'react-router-dom';
 
 import Signup from './components/user-pages/Signup';
+import Login from './components/user-pages/Login'
 
 class App extends Component {
   constructor(){
@@ -20,10 +21,33 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Signup 
-        currentUser = { this.state.currentUser }
-        onUserChange = { userInfo => this.syncCurrentUser(userInfo) }
-        />
+          <div>
+            <NavLink to="/signup"> Sign Up </NavLink>
+            <NavLink to="/login"> Log In </NavLink>
+          </div>
+          
+          <div>
+            <Switch>
+                <Route 
+                    path="/signup"
+                    render={ () => ( 
+                        <Signup 
+                        currentUser = { this.state.currentUser }
+                        onUserChange = { userInfo => this.syncCurrentUser(userInfo) }
+                        />
+                    )}
+                />
+                <Route 
+                    path="/login"
+                    render= { () => (
+                        <Login 
+                        currentUser = { this.state.currentUser }
+                        onUserChange = { userInfo => this.syncCurrentUser(userInfo) }
+                        />
+                    )}
+                />
+            </Switch>
+          </div>
       </div>
     )
   }
