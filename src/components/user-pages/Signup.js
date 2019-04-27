@@ -52,7 +52,7 @@ class Signup extends Component {
     render() { 
         // this.props is how you access the props from the parent component. From the parent component we send to the child component as this.state
         if ( this.props.currentUser ) {
-            return <Redirect to="/google.com" />
+            return <Redirect to="/" />
         }
         return ( 
             <section>
