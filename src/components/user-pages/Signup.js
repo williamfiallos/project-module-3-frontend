@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 // axios calls the backend routes, like so: backend /api/signup", axios.CRUD
 import axios from 'axios';
 
+import { Redirect } from 'react-router-dom';
+
 class Signup extends Component {
     constructor(props) {
         super(props);
@@ -30,13 +32,16 @@ class Signup extends Component {
             { withCredentials: true } // 3rd optional: "credentials: true" (in CORS/App.js backend) which allows frontend to comminucate with backend
         )
         .then( responseFromServer => {
-            console.log("responseFromServer: ", responseFromServer);
+            // console.log("responseFromServer: ", responseFromServer); destructure:
             const { userInfo } = this.responseFromServer.data
+            // sending userInfo back to parent through props like so:
             this.props.onUserChange(userInfo);
         })
 
         .catch(err => {
-            console.log("error while signup: ", err);
+            // console.log("error while signup: ", err.response);
+            // in req, res, next; "response" is an object that has many fields, therefore we must dig deeper like so placeholder.response.data.message.
+            // (req, res, next) is/are sent as a json file from the backend
             if (err.response && err.response.data){
                 return this.setState({ message: err.response.data.message });
             }
@@ -45,11 +50,15 @@ class Signup extends Component {
 
 
     render() { 
+        // this.props is how you access the props from the parent component. From the parent component we send to the child component as this.state
+        if ( this.props.currentUser ) {
+            return <Redirect to="/google.com" />
+        }
         return ( 
             <section>
                 <form onSubmit={ event => this.handleSubmit(event) } > 
                 {/* onChange updates the event per letter being entered; onSubmit is the clicking of button */}
-                    <label> Email </label>
+                    <label> Email: </label>
                     <input 
                         name = "email"
                         value = { this.state.email }
@@ -57,7 +66,7 @@ class Signup extends Component {
                         type = "email"
                         placeholder = "johnsmith@email.com"
                     />
-                    <label> Password </label>
+                    <label> Password: </label>
                     <input 
                         name = "password"
                         value = { this.state.password }
@@ -65,7 +74,7 @@ class Signup extends Component {
                         type = "password"
                         placeholder = "*********"
                     />
-                    <label> First Name </label>
+                    <label> First Name: </label>
                     <input 
                         name = "firstName"
                         value = { this.state.firstName }
@@ -73,7 +82,7 @@ class Signup extends Component {
                         type = "firstName"
                         placeholder = "John"
                     />
-                    <label> Last Name </label>
+                    <label> Last Name: </label>
                     <input 
                         name = "lastName"
                         value = { this.state.lastName }
@@ -85,6 +94,12 @@ class Signup extends Component {
                     <button> Sign Up </button>
 
                 </form>
+
+                {/* if statement: if both, leftSide && rightSide, are true (or not null as stated in the state), 
+                display rightSide (which is the actual message) */}
+                { this.state.message && <div> { this.state.message } </div> } 
+                {/* rightSide is wrapped in div because you cannot have a child HTML */}
+
             </section>
         );
     }
