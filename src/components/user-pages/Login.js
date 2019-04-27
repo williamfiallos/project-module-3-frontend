@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -40,6 +41,9 @@ class Login extends Component {
 
 
     render() { 
+        if ( this.props.currentUser ) {
+            return <Redirect to="/" />
+        }
         return ( 
             <section>
                 <form onSubmit={ event => this.handleSubmit(event) } >
