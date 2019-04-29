@@ -33,7 +33,7 @@ class Signup extends Component {
         )
         .then( responseFromServer => {
             // console.log("responseFromServer: ", responseFromServer); destructure:
-            const { userInfo } = this.responseFromServer.data
+            const { userInfo } = responseFromServer.data
             // sending userInfo back to parent through props like so:
             this.props.onUserChange(userInfo);
         })
