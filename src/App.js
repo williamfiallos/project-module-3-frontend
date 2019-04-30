@@ -6,6 +6,7 @@ import { Switch, NavLink, Route } from "react-router-dom";
 import Signup from "./components/user-pages/Signup";
 import Login from "./components/user-pages/Login";
 import LatestListing from "./components/dashboard/LatestListing";
+import PostAd from "./components/post-ad/PostAd";
 
 class App extends Component {
   constructor() {
@@ -27,7 +28,9 @@ class App extends Component {
             <span>
               <h1>Craigslist (insert logo here)</h1>
               <button>My account</button>
-              <button>Post an Ad</button>
+              <NavLink to="/postad">
+                  <button>Post an Ad</button>
+              </NavLink>
             </span>
           ) : (
             <span>
@@ -58,9 +61,19 @@ class App extends Component {
                 />
               )}
             />
+
+            <Route
+              path="/postad"
+              render={() => (
+                <PostAd
+                  currentUser={this.state.currentUser}
+                  // onUserChange={userInfo => this.syncCurrentUser(userInfo)}
+                />
+              )}
+            />
+          <LatestListing />
           </Switch>
 
-      <LatestListing />
 
         </div>
       </div>
