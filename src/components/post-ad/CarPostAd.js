@@ -67,9 +67,6 @@ class CarPostAd extends Component {
   }
 
   render() {
-    if (!this.props.currentUser) {
-      return <Redirect to="/login" />;
-    }
     if (this.state.isSubmitSuccessful) {
       return <Redirect to="/" />;
     }
