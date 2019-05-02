@@ -9,26 +9,7 @@ class PostAd extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            adType: "",
-            // title: "",
-            // images: [],
-            // price: "",
-            // description: "",
-            // condition: "",
-            // cylinders: "",
-            // drive: "",
-            // fuel: "",
-            // odometer: "",
-            // paintColor: "",
-            // transmission: "",
-            // type: "",
-            // address: "",
-            // houseType: "",
-            // squareFeet: "",
-            // totalRooms: "",
-            // totalBathrooms: "",
-            // parking: "",
-            // petsAllowed: ""
+            adType: ""
          }
     }
 
@@ -41,25 +22,23 @@ class PostAd extends Component {
      };
     
     render() { 
-        // if(!this.state.adType){
+        return ( 
+            <section>
+                <form>
+                    <select value={ this.state.adType } name="adType" onChange= { event => this.genericSync(event) } >
+                        <option value=""  > </option>
+                        <option value="car"  > Car Post </option>
+                        <option value="house" > House Post </option>
+                    </select>
 
-            return ( 
-                <section>
-                    <form>
-                        <select value={ this.state.adType } name="adType" onChange= { event => this.genericSync(event) } >
-                            <option value=""  > </option>
-                            <option value="car"  > Car Post </option>
-                            <option value="house" > House Post </option>
-                        </select>
-
-                        </form>
-                        {  
-                            this.state.adType === "car" ? <CarPostAd /> :
-                            this.state.adType === "house" ? <HousePostAd /> :
-                            null
-                        }                   
-                </section>
-             );
+                    </form>
+                    {  
+                        this.state.adType === "car" ? <CarPostAd /> :
+                        this.state.adType === "house" ? <HousePostAd /> :
+                        null
+                    }                   
+            </section>
+            );
     }
 }
 
