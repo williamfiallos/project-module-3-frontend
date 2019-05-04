@@ -6,7 +6,9 @@ import { Switch, NavLink, Route } from "react-router-dom";
 import Signup from "./components/user-pages/Signup";
 import Login from "./components/user-pages/Login";
 import PostAd from "./components/post-ad/PostAd";
-import Dashboard from './components/dashboard/Dashboard'
+import Dashboard from './components/dashboard/Dashboard';
+import AllCars from './components/Posts/AllCars';
+import CarDetails from './components/Posts/CarDetails'
 
 class App extends Component {
   constructor() {
@@ -69,7 +71,20 @@ class App extends Component {
                   currentUser={this.state.currentUser}
                   // onUserChange={userInfo => this.syncCurrentUser(userInfo)}
                 />
+
               )}
+            />
+
+            <Route
+            path="/forsale/cars"
+            render={() => (
+              <AllCars />
+            )}
+            />
+
+            <Route
+            path="/forsale/:carid"
+            component={CarDetails}
             />
           <Dashboard />
           </Switch>

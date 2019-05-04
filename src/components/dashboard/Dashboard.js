@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import LatestListing from "./LatestListing";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -23,7 +24,6 @@ class Dashboard extends Component {
               <p>Saved Postings</p>
               <p>Account information</p>
               <p>Account Settings</p>
-
             </Col>
             <Col>
               <h1>Community</h1>
@@ -60,7 +60,9 @@ class Dashboard extends Component {
               <p>Boats</p>
               <p>Books</p>
               <p>Business</p>
-              <p>Cars</p>
+              <Link to={"/forsale/cars"}>
+                <p>Cars</p>
+              </Link>
               <p>Cellphones</p>
             </Col>
             <Col>
