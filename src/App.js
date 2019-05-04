@@ -5,8 +5,8 @@ import { Switch, NavLink, Route } from "react-router-dom";
 
 import Signup from "./components/user-pages/Signup";
 import Login from "./components/user-pages/Login";
-import LatestListing from "./components/dashboard/LatestListing";
 import PostAd from "./components/post-ad/PostAd";
+import Dashboard from './components/dashboard/Dashboard'
 
 class App extends Component {
   constructor() {
@@ -71,7 +71,7 @@ class App extends Component {
                 />
               )}
             />
-          <LatestListing />
+          <Dashboard />
           </Switch>
 
 
