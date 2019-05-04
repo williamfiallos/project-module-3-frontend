@@ -9,6 +9,8 @@ import PostAd from "./components/post-ad/PostAd";
 import Dashboard from './components/dashboard/Dashboard';
 import AllCars from './components/Posts/AllCars';
 import CarDetails from './components/Posts/CarDetails'
+import AllHouses from "./components/Posts/AllHouses";
+import HouseDetails from "./components/Posts/HouseDetails";
 
 class App extends Component {
   constructor() {
@@ -81,11 +83,27 @@ class App extends Component {
               <AllCars />
             )}
             />
-
+          
             <Route
-            path="/forsale/:carid"
-            component={CarDetails}
+            path="/cars/:carid"
+            component = {
+              CarDetails
+            }
             />
+
+            <Route 
+            path="/foresale/housing"
+            render={() => (
+              <AllHouses />
+            )}
+            />
+            <Route 
+            path="/housing/:houseid"
+            component = {
+              HouseDetails
+            }
+            />
+
           <Dashboard />
           </Switch>
 

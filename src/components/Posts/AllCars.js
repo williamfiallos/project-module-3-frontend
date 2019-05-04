@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -40,7 +40,7 @@ class AllCars extends Component {
             
             return (
                 <Col key={eachCar._id}>
-                  <Link to={`/forsale/${eachCar._id}`}>
+                  <Link to={`/cars/${eachCar._id}`}>
                   <img className="allCarsImage" src={eachCar.images[0]} alt={eachCar.title} />
                   </Link>
                   <p>{eachCar.title}</p>

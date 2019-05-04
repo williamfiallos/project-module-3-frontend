@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect } from 'react-router-dom';
 
 class HousePostAd extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class HousePostAd extends Component {
       totalRooms: "",
       totalBathrooms: "",
       parking: "",
-      petsAllowed: ""
+      petsAllowed: "",
+      isSubmitSuccessfull: false,
     };
   }
 
@@ -39,21 +41,6 @@ class HousePostAd extends Component {
       });
   }
 
-  //   uploadImage(event) {
-  //     // console.log("upload image: ", event.target)
-  //     const { files } = event.target;
-  //     const uploadData = new FormData();
-
-  //     uploadData.append("submittedFile", files[0]);
-
-  //     axios
-  //       .post("http://localhost:3001/api/upload-file", uploadData, {
-  //         withCredentials: true
-  //       })
-  //       .then(response => this.setState({ image: response.data.fileUrl }))
-  //       .catch(err => console.log(err));
-  //   }
-
   uploadImage(event) {
     const { files } = event.target;
     const uploadData = new FormData();
@@ -75,6 +62,9 @@ class HousePostAd extends Component {
   }
 
   render() {
+      if (this.state.isSubmitSuccessful) {
+          return <Redirect to="/" />
+      }
     return (
       <section>
         <form onSubmit={event => this.handleSubmit(event)}>
