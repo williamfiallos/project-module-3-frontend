@@ -70,7 +70,9 @@ class Dashboard extends Component {
               <hr />
               <p>Apartments</p>
               <p>Commercial</p>
-              <p>Housing</p>
+              <Link to={"/foresale/housing"}>
+                <p>Housing</p>
+              </Link>
               <p>Housing Swap</p>
               <p>Housing Wanted</p>
               <p>Office</p>
