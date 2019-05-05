@@ -45,18 +45,35 @@ class HouseDetails extends Component {
                         <p>{description}</p>
                     </Col>
                     <Col>
-                        <p>${price}</p>
-                        <button>Contact the owner</button>
-                        <br />
-                        <button>Add to favorite</button>
-                        <p>Key Details</p>
-                        <p>Address: {address}</p>
-                        <p>House Type: {houseType}</p>
-                        <p>Square Feet: {squareFeet}</p>
-                        <p>Total Rooms: {totalRooms}</p>
-                        <p>Total Bathrooms: {totalBathrooms}</p>
-                        <p>Parking: {parking}</p>
-                        <p>Pets Allowed: {petsAllowed}</p>
+                        <div className="text-center">
+                            <p>${price}</p>
+                            <button>Contact the owner</button>
+                            <br />
+                            <button>Add to favorite</button>
+                            <p>Key Details</p>
+                        </div>
+                            <Row>
+                                <Col>
+                                    <div className="text-right">
+                                        <p>Address:</p>
+                                        <p>House Type:</p>
+                                        <p>Square Feet:</p>
+                                        <p>Total Rooms:</p>
+                                        <p>Total Bathrooms:</p>
+                                        <p>Parking:</p>
+                                        <p>Pets Allowed:</p>
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <p>{address}</p>
+                                    <p>{houseType}</p>
+                                    <p>{squareFeet}</p>
+                                    <p>{totalRooms}</p>
+                                    <p>{totalBathrooms}</p>
+                                    <p>{parking}</p>
+                                    <p>{petsAllowed}</p>
+                                </Col>
+                            </Row>
                     </Col>
                 </Row>
             </Container>
