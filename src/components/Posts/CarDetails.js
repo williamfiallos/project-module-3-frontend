@@ -52,19 +52,37 @@ class CarDetails extends Component {
           <p>{description}</p>
           </Col>
           <Col>
-          <p>${price}</p>
-          <button>Contact the owner</button>
-          <br />
-          <button>Add to favorite</button>
-          <p>Key Details</p>
-          <p>Condition: {condition}</p>
-          <p>Cylinders: {cylinders}</p>
-          <p>Drive: {drive}</p>
-          <p>Fuel: {fuel}</p>
-          <p>Odometer: {odometer}</p>
-          <p>Paint Color: {paintColor}</p>
-          <p>Transmission: {transmission}</p>
-          <p>Type: {type}</p>
+              <div className="text-center">
+                  <p>${price}</p>
+                  <button>Contact the owner</button>
+                  <br />
+                  <button>Add to favorite</button>
+                  <p>Key Details</p>
+              </div>
+              <Row>
+                  <Col>
+                      <div className="text-right">
+                          <p>Condition:</p>
+                          <p>Cylinders:</p>
+                          <p>Drive:</p>
+                          <p>Fuel:</p>
+                          <p>Odometer:</p>
+                          <p>Paint Color:</p>
+                          <p>Transmission:</p>
+                          <p>Type:</p>
+                      </div>
+                  </Col>
+                  <Col>
+                      <p>{condition}</p>
+                      <p>{cylinders}</p>
+                      <p>{drive}</p>
+                      <p>{fuel}</p>
+                      <p>{odometer}</p>
+                      <p>{paintColor}</p>
+                      <p>{transmission}</p>
+                      <p>{type}</p>
+                  </Col>
+              </Row>
           </Col>
           </Row>
         </Container>
