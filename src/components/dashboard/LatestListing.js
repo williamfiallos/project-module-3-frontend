@@ -23,7 +23,6 @@ class LatestListing extends Component {
   }
 
   render() {
-    console.log("Latest listings: ", this.state.latestListings);
     const { latestListings } = this.state;
 
     return (
