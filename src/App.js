@@ -11,6 +11,7 @@ import AllCars from './components/Posts/AllCars';
 import CarDetails from './components/Posts/CarDetails'
 import AllHouses from "./components/Posts/AllHouses";
 import HouseDetails from "./components/Posts/HouseDetails";
+import MyListings from './components/user-pages/MyListings';
 
 class App extends Component {
   constructor() {
@@ -30,7 +31,7 @@ class App extends Component {
         <div>
           {this.state.currentUser ? (
             <span>
-              <h1>Craigslist (insert logo here)</h1>
+              {/* <NavLink to="/"> Craigslist (insert logo here) </NavLink> */}
               <button>My account</button>
               <NavLink to="/postad">
                   <button>Post an Ad</button>
@@ -38,7 +39,7 @@ class App extends Component {
             </span>
           ) : (
             <span>
-              <h1>Craigstlist (insert Logo)</h1>
+              {/* <NavLink to="/"> Craigslist (insert logo here) </NavLink> */}
               <NavLink to="/signup"> Sign Up </NavLink>
               <NavLink to="/login"> Log In </NavLink>
             </span>
@@ -47,6 +48,10 @@ class App extends Component {
 
         <div>
           <Switch>
+            {/* <Route 
+              path="/"
+              component={App}
+            /> */}
             <Route
               path="/signup"
               render={() => (
@@ -101,6 +106,12 @@ class App extends Component {
             path="/housing/:houseid"
             component = {
               HouseDetails
+            }
+            />
+            <Route 
+            path="/myaccount/mylistings"
+            component = {
+              MyListings
             }
             />
 
