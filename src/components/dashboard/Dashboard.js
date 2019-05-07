@@ -20,7 +20,9 @@ class Dashboard extends Component {
             <Col>
               <h1>My Account</h1>
               <hr />
-              <p>My Posting</p>
+              <Link to={"/myaccount/mylistings"}> 
+                  <p>My Listings</p> 
+              </Link>
               <p>Saved Postings</p>
               <p>Account information</p>
               <p>Account Settings</p>
