@@ -6,12 +6,12 @@ import { Switch, NavLink, Route } from "react-router-dom";
 import Signup from "./components/user-pages/Signup";
 import Login from "./components/user-pages/Login";
 import PostAd from "./components/post-ad/PostAd";
-import Dashboard from './components/dashboard/Dashboard';
-import AllCars from './components/Posts/AllCars';
-import CarDetails from './components/Posts/CarDetails'
+import Dashboard from "./components/dashboard/Dashboard";
+import AllCars from "./components/Posts/AllCars";
+import CarDetails from "./components/Posts/CarDetails";
 import AllHouses from "./components/Posts/AllHouses";
 import HouseDetails from "./components/Posts/HouseDetails";
-import MyListings from './components/user-pages/MyListings';
+import MyListings from "./components/user-pages/MyListings";
 import EditListing from "./components/user-pages/EditListing";
 
 class App extends Component {
@@ -32,27 +32,29 @@ class App extends Component {
         <div>
           {this.state.currentUser ? (
             <span>
-              {/* <NavLink to="/"> Craigslist (insert logo here) </NavLink> */}
-              <button>My account</button>
-              <NavLink to="/postad">
+              <NavLink to="/dashboard"> Craigslist </NavLink>
+              <div className="text-right">
+                <button>My account</button>
+                <NavLink to="/postad">
                   <button>Post an Ad</button>
-              </NavLink>
+                </NavLink>
+              </div>
             </span>
           ) : (
-            <span>
-              {/* <NavLink to="/"> Craigslist (insert logo here) </NavLink> */}
-              <NavLink to="/signup"> Sign Up </NavLink>
-              <NavLink to="/login"> Log In </NavLink>
-            </span>
+            <div>
+              <NavLink to="/dashboard"> Craigslist </NavLink>
+              <span className="text-right">
+                <NavLink to="/signup"> Sign Up </NavLink>
+                <NavLink to="/login"> Log In </NavLink>
+              </span>
+            </div>
           )}
         </div>
 
         <div>
           <Switch>
-            {/* <Route 
-              path="/"
-              component={App}
-            /> */}
+            <Route path="/dashboard" component={Dashboard} />
+
             <Route
               path="/signup"
               render={() => (
@@ -79,7 +81,6 @@ class App extends Component {
                   currentUser={this.state.currentUser}
                   // onUserChange={userInfo => this.syncCurrentUser(userInfo)}
                 />
-
               )}
             />
 
@@ -88,43 +89,16 @@ class App extends Component {
               component={EditListing}
             />
 
-            <Route
-            path="/forsale/cars"
-            render={() => (
-              <AllCars />
-            )}
-            />
-          
-            <Route
-            path="/cars/:carid"
-            component = {
-              CarDetails
-            }
-            />
+            <Route path="/forsale/cars" render={() => <AllCars />} />
 
-            <Route 
-            path="/foresale/housing"
-            render={() => (
-              <AllHouses />
-            )}
-            />
-            <Route 
-            path="/housing/:houseid"
-            component = {
-              HouseDetails
-            }
-            />
-            <Route 
-            path="/myaccount/mylistings"
-            component = {
-              MyListings
-            }
-            />
+            <Route path="/cars/:carid" component={CarDetails} />
 
-          <Dashboard />
+            <Route path="/foresale/housing" render={() => <AllHouses />} />
+            <Route path="/housing/:houseid" component={HouseDetails} />
+            <Route path="/myaccount/mylistings" component={MyListings} />
+
+            <Dashboard />
           </Switch>
-
-
         </div>
       </div>
     );
