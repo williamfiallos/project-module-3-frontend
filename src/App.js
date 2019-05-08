@@ -12,6 +12,7 @@ import CarDetails from './components/Posts/CarDetails'
 import AllHouses from "./components/Posts/AllHouses";
 import HouseDetails from "./components/Posts/HouseDetails";
 import MyListings from './components/user-pages/MyListings';
+import EditListing from "./components/user-pages/EditListing";
 
 class App extends Component {
   constructor() {
@@ -80,6 +81,11 @@ class App extends Component {
                 />
 
               )}
+            />
+
+            <Route
+              path="/myaccount/editlisting/:theId"
+              component={EditListing}
             />
 
             <Route
