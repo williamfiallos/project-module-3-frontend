@@ -17,7 +17,7 @@ class Dashboard extends Component {
 
         <Container>
           <Row>
-            <Col>
+            <Col className="shadowBG">
               <h1>My Account</h1>
               <hr />
               <Link to={"/myaccount/mylistings"}> 
@@ -27,7 +27,7 @@ class Dashboard extends Component {
               <p>Account information</p>
               <p>Account Settings</p>
             </Col>
-            <Col>
+            <Col className="shadowBG">
               <h1>Community</h1>
               <hr />
               <p>Activities</p>
@@ -37,7 +37,7 @@ class Dashboard extends Component {
               <p>General</p>
               <p>Groups</p>
             </Col>
-            <Col>
+            <Col className="shadowBG">
               <h1>Personal</h1>
               <hr />
               <p>Flatmate wanted</p>
@@ -49,7 +49,7 @@ class Dashboard extends Component {
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col className="shadowBG">
               <h1>For Sale</h1>
               <hr />
               <p>Antiques</p>
@@ -67,7 +67,7 @@ class Dashboard extends Component {
               </Link>
               <p>Cellphones</p>
             </Col>
-            <Col>
+            <Col className="shadowBG">
               <h1>Housing</h1>
               <hr />
               <p>Apartments</p>
@@ -84,7 +84,7 @@ class Dashboard extends Component {
               <p>Rooms Wanted</p>
               <p>Sublets</p>
             </Col>
-            <Col>
+            <Col className="shadowBG">
               <h1>Jobs</h1>
               <hr />
               <p>Accounting</p>
