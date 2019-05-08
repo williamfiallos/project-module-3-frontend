@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -73,7 +74,12 @@ class MyListings extends Component {
               <Container>
                 <Row>
                   <Col className="text-right">
-                    <button>Edit</button>
+                    <Link to={{
+                      pathname:`/myaccount/editlisting/${eachListings._id}`, 
+                      state: {listings: this.state.myListings, index: {i}} 
+                    }} >
+                      <button>Edit</button>
+                    </Link>
                     <button onClick={() => this.deleteListing(i)}>Delete</button>
                   </Col>
                   <Col>
