@@ -26,7 +26,8 @@ class LatestListing extends Component {
     const { latestListings } = this.state;
 
     return (
-        <Carousel>
+
+        <Carousel className="imgCarousel">
           {latestListings.map(eachListing => {
             return (
               <Carousel.Item
@@ -44,6 +45,7 @@ class LatestListing extends Component {
             );
           })}
         </Carousel>
+
     );
   }
 }
