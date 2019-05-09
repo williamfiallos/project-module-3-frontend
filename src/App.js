@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import { Container, Row, Col } from 'react-bootstrap';
 
 import { Switch, NavLink, Route } from "react-router-dom";
 
@@ -31,23 +32,31 @@ class App extends Component {
       <div>
         <div>
           {this.state.currentUser ? (
-            <span>
-              <NavLink to="/dashboard"> Craigslist </NavLink>
-              <div className="text-right">
-                <button>My account</button>
-                <NavLink to="/postad">
-                  <button>Post an Ad</button>
-                </NavLink>
-              </div>
-            </span>
+              <Row>
+                <Col>
+                  <NavLink to="/dashboard"> Craigslist </NavLink>
+                </Col>
+                <Col>
+                  <div className="text-right">
+                    <button>My account</button>
+                    <NavLink to="/postad">
+                      <button>Post an Ad</button>
+                    </NavLink>
+                  </div>
+                </Col>
+              </Row>
           ) : (
-            <div>
-              <NavLink to="/dashboard"> Craigslist </NavLink>
-              <span className="text-right">
-                <NavLink to="/signup"> Sign Up </NavLink>
-                <NavLink to="/login"> Log In </NavLink>
-              </span>
-            </div>
+              <Row>
+                <Col>
+                  <NavLink to="/dashboard"> Craigslist </NavLink>
+                </Col>
+                <Col>
+                  <div className="text-right">
+                    <NavLink to="/signup"> Sign Up </NavLink>
+                    <NavLink to="/login"> Log In </NavLink>
+                  </div>
+                </Col>
+              </Row>
           )}
         </div>
 
