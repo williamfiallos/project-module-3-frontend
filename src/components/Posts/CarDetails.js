@@ -35,7 +35,7 @@ class CarDetails extends Component {
     const { title, images, condition, cylinders, drive, fuel, odometer, paintColor, transmission, type, description, price} = this.state;
     return (
         <Container>
-          <Row>
+          <Row className="detailListing">
           <Col>
           <p>{title}</p>
 
@@ -54,9 +54,9 @@ class CarDetails extends Component {
           <Col>
               <div className="text-center">
                   <p>${price}</p>
-                  <button>Contact the owner</button>
+                  <button className="button">Contact the owner</button>
                   <br />
-                  <button>Add to favorite</button>
+                  <button className="button">Add to favorite</button>
                   <p>Key Details</p>
               </div>
               <Row>

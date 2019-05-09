@@ -180,7 +180,7 @@ class CarPostAd extends Component {
             multiple
           />
           <br />
-          <button> Post Ad </button>
+          <button className="button"> Post Ad </button>
         </form>
       </section>
     );

@@ -72,12 +72,7 @@ class EditListing extends Component {
       this.props.location.state.index.i
     ]._id;
 
-    // console.log("EFEAFEFAE", listingType);
-    // console.log("id", id);
-    // console.log('=====',this.props.location.state);
-    // console.log('INDEX',this.props.location.state.index.i);
-    // console.log('LISTINGS',this.props.location.state.listings);
-    // console.log('ID OF LISTING',this.props.location.state.listings[this.props.location.state.index.i])
+
 
     if (listingType.postType === "car") {
       axios
@@ -101,8 +96,7 @@ class EditListing extends Component {
   }
 
   render() {
-    console.log("the state", this.state);
-    console.log("the props", this.props);
+
         if (this.state === null) {
             return <Redirect to="/" />;
           }
@@ -113,7 +107,7 @@ class EditListing extends Component {
 
     if(listingType === "car"){
         return (
-          <div>
+          <div className="postForm">
             <h1>EDIT POST</h1>
             <form onSubmit={event => this.handleSubmit(event)}>
               <label> Title: </label>
@@ -205,13 +199,13 @@ class EditListing extends Component {
               />
               <br />
     
-              <button> Post Ad </button>
+              <button className="button"> Post Ad </button>
             </form>
           </div>
         );
     }
     return (
-        <section>
+        <section className="postForm">
         <form onSubmit={event => this.handleSubmit(event)}>
           <label> Title: </label>
           <input
@@ -306,7 +300,7 @@ class EditListing extends Component {
             multiple
           />
           <br />
-          <button>Post Ad</button>
+          <button className="button">Post Ad</button>
         </form>
       </section>
     );

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Row, Col } from "react-bootstrap";
+
 
 // axios calls the backend routes, like so: backend /api/signup", axios.CRUD
 import axios from 'axios';
@@ -55,7 +57,7 @@ class Signup extends Component {
             return <Redirect to="/" />
         }
         return ( 
-            <section>
+            <section className="forms">
                 <form onSubmit={ event => this.handleSubmit(event) } > 
                 {/* onChange updates the event per letter being entered; onSubmit is the clicking of button */}
                     <label> Email: </label>
@@ -66,6 +68,7 @@ class Signup extends Component {
                         type = "email"
                         placeholder = "johnsmith@email.com"
                     />
+                    <br />
                     <label> Password: </label>
                     <input 
                         name = "password"
@@ -74,6 +77,7 @@ class Signup extends Component {
                         type = "password"
                         placeholder = "*********"
                     />
+                    <br />
                     <label> First Name: </label>
                     <input 
                         name = "firstName"
@@ -82,6 +86,7 @@ class Signup extends Component {
                         type = "firstName"
                         placeholder = "John"
                     />
+                    <br />
                     <label> Last Name: </label>
                     <input 
                         name = "lastName"
@@ -90,9 +95,8 @@ class Signup extends Component {
                         type = "lastName"
                         placeholder = "Smith"
                     />
-
-                    <button> Sign Up </button>
-
+                    <br />
+                    <button className="button"> Sign Up </button>
                 </form>
 
                 {/* if statement: if both, leftSide && rightSide, are true (or not null as stated in the state), 

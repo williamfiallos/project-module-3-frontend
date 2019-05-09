@@ -35,7 +35,7 @@ class AllCars extends Component {
 
         <section>
           <Container>
-            <Row>
+            <Row className="allListings">
           {allCars.map((eachCar) => {
             
             return (

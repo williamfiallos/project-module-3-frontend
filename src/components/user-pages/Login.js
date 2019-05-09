@@ -45,7 +45,7 @@ class Login extends Component {
             return <Redirect to="/" />
         }
         return ( 
-            <section>
+            <section className="forms">
                 <form onSubmit={ event => this.handleSubmit(event) } >
                     <label> Email: </label>
                     <input 
@@ -55,6 +55,7 @@ class Login extends Component {
                         value = { this.state.email }
                         placeholder = "johnsmith@email.com"
                     />
+                    <br />
                     <label> Password: </label>
                     <input 
                         name = "password"
@@ -63,8 +64,9 @@ class Login extends Component {
                         value = { this.state.password }
                         placeholder = "*********"
                     />
+                    <br />
 
-                    <button> Log In </button>
+                    <button className="button"> Log In </button>
 
                 </form>
 
