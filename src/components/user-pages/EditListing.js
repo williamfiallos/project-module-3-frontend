@@ -72,20 +72,18 @@ class EditListing extends Component {
       this.props.location.state.index.i
     ]._id;
 
-
-
     if (listingType.postType === "car") {
       axios
-        .put(`http://localhost:3001/api/car-update/${id}`, this.state, {
+        .put(`${process.env.REACT_APP_API_URL}/car-update/${id}`, this.state, {
           withCredentials: true
         })
         .then(responseFromApi => {
-            this.setState({submitSuccessful: true});
+          this.setState({ submitSuccessful: true });
         })
         .catch(err => console.log(err));
     } else {
       axios
-        .put(`http://localhost:3001/api/house-update/${id}`, this.state, {
+        .put(`${process.env.REACT_APP_API_URL}/house-update/${id}`, this.state, {
           withCredentials: true
         })
         .then(responseFromApi => {
@@ -96,116 +94,115 @@ class EditListing extends Component {
   }
 
   render() {
-
-        if (this.state === null) {
-            return <Redirect to="/" />;
-          }
+    if (this.state === null) {
+      return <Redirect to="/" />;
+    }
     const listingType = this.props.location.state.listings[
-        this.props.location.state.index.i
-      ].postType;
-      console.log("HELLO LISTING TYPE", listingType);
+      this.props.location.state.index.i
+    ].postType;
+    console.log("HELLO LISTING TYPE", listingType);
 
-    if(listingType === "car"){
-        return (
-          <div className="postForm">
-            <h1>EDIT POST</h1>
-            <form onSubmit={event => this.handleSubmit(event)}>
-              <label> Title: </label>
-              <input
-                name="title"
-                type="text"
-                onChange={event => this.genericSync(event)}
-                value={this.state.title}
-              />
-              <br />
-              <label> Price: $ </label>
-              <input
-                name="price"
-                type="text"
-                onChange={event => this.genericSync(event)}
-                value={this.state.price}
-              />
-              <br />
-              <label> Description: </label>
-              <input
-                name="description"
-                type="text"
-                onChange={event => this.genericSync(event)}
-                value={this.state.description}
-              />
-              <br />
-              <label> Type: </label>
-              <input
-                name="type"
-                type="text"
-                onChange={event => this.genericSync(event)}
-                value={this.state.type}
-              />
-              <br />
-              <label> Condition: </label>
-              <input
-                name="condition"
-                type="text"
-                onChange={event => this.genericSync(event)}
-                value={this.state.condition}
-              />
-              <br />
-              <label> Cylinders: </label>
-              <input
-                name="cylinders"
-                type="text"
-                onChange={event => this.genericSync(event)}
-                value={this.state.cylinders}
-              />
-              <br />
-              <label> Drive: </label>
-              <input
-                name="drive"
-                type="text"
-                onChange={event => this.genericSync(event)}
-                value={this.state.drive}
-              />
-              <br />
-              <label> Fuel: </label>
-              <input
-                name="fuel"
-                type="text"
-                onChange={event => this.genericSync(event)}
-                value={this.state.fuel}
-              />
-              <br />
-              <label> Odometer: </label>
-              <input
-                name="odometer"
-                type="text"
-                onChange={event => this.genericSync(event)}
-                value={this.state.odometer}
-              />
-              <br />
-              <label> Paint Color: </label>
-              <input
-                name="paintColor"
-                type="text"
-                onChange={event => this.genericSync(event)}
-                value={this.state.paintColor}
-              />
-              <br />
-              <label> Transmission: </label>
-              <input
-                name="transmission"
-                type="text"
-                onChange={event => this.genericSync(event)}
-                value={this.state.transmission}
-              />
-              <br />
-    
-              <button className="button"> Post Ad </button>
-            </form>
-          </div>
-        );
+    if (listingType === "car") {
+      return (
+        <div className="postForm">
+          <h1>EDIT POST</h1>
+          <form onSubmit={event => this.handleSubmit(event)}>
+            <label> Title: </label>
+            <input
+              name="title"
+              type="text"
+              onChange={event => this.genericSync(event)}
+              value={this.state.title}
+            />
+            <br />
+            <label> Price: $ </label>
+            <input
+              name="price"
+              type="text"
+              onChange={event => this.genericSync(event)}
+              value={this.state.price}
+            />
+            <br />
+            <label> Description: </label>
+            <input
+              name="description"
+              type="text"
+              onChange={event => this.genericSync(event)}
+              value={this.state.description}
+            />
+            <br />
+            <label> Type: </label>
+            <input
+              name="type"
+              type="text"
+              onChange={event => this.genericSync(event)}
+              value={this.state.type}
+            />
+            <br />
+            <label> Condition: </label>
+            <input
+              name="condition"
+              type="text"
+              onChange={event => this.genericSync(event)}
+              value={this.state.condition}
+            />
+            <br />
+            <label> Cylinders: </label>
+            <input
+              name="cylinders"
+              type="text"
+              onChange={event => this.genericSync(event)}
+              value={this.state.cylinders}
+            />
+            <br />
+            <label> Drive: </label>
+            <input
+              name="drive"
+              type="text"
+              onChange={event => this.genericSync(event)}
+              value={this.state.drive}
+            />
+            <br />
+            <label> Fuel: </label>
+            <input
+              name="fuel"
+              type="text"
+              onChange={event => this.genericSync(event)}
+              value={this.state.fuel}
+            />
+            <br />
+            <label> Odometer: </label>
+            <input
+              name="odometer"
+              type="text"
+              onChange={event => this.genericSync(event)}
+              value={this.state.odometer}
+            />
+            <br />
+            <label> Paint Color: </label>
+            <input
+              name="paintColor"
+              type="text"
+              onChange={event => this.genericSync(event)}
+              value={this.state.paintColor}
+            />
+            <br />
+            <label> Transmission: </label>
+            <input
+              name="transmission"
+              type="text"
+              onChange={event => this.genericSync(event)}
+              value={this.state.transmission}
+            />
+            <br />
+
+            <button className="button"> Post Ad </button>
+          </form>
+        </div>
+      );
     }
     return (
-        <section className="postForm">
+      <section className="postForm">
         <form onSubmit={event => this.handleSubmit(event)}>
           <label> Title: </label>
           <input
@@ -213,7 +210,6 @@ class EditListing extends Component {
             type="text"
             onChange={event => this.genericSync(event)}
             value={this.state.title}
-
           />
           <br />
           <label> Price: </label>
@@ -222,7 +218,6 @@ class EditListing extends Component {
             type="number"
             onChange={event => this.genericSync(event)}
             value={this.state.price}
-
           />
           <br />
           <label> Description: </label>
@@ -231,7 +226,6 @@ class EditListing extends Component {
             type="text"
             onChange={event => this.genericSync(event)}
             value={this.state.description}
-
           />
           <br />
           <label> Address: </label>
@@ -240,7 +234,6 @@ class EditListing extends Component {
             type="text"
             onChange={event => this.genericSync(event)}
             value={this.state.address}
-
           />
           <br />
           <label> House Type: </label>
@@ -274,7 +267,7 @@ class EditListing extends Component {
             onChange={event => this.genericSync(event)}
             value={this.state.totalBathrooms}
           />
-       
+
           <br />
           <label> Parking Spaces: </label>
           <input
@@ -304,7 +297,6 @@ class EditListing extends Component {
         </form>
       </section>
     );
-
   }
 }
 

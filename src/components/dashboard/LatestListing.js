@@ -12,7 +12,9 @@ class LatestListing extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3001/api/all-listings", { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/all-listings`, {
+        withCredentials: true
+      })
       .then(responseFromApi => {
         this.setState({ latestListings: responseFromApi.data });
       })
@@ -26,26 +28,23 @@ class LatestListing extends Component {
     const { latestListings } = this.state;
 
     return (
-
-        <Carousel className="imgCarousel">
-          {latestListings.map(eachListing => {
-            return (
-              <Carousel.Item
-              key={eachListing._id}>
-                <img
-                  className="d-block w-100 carouselImg"
-                  src={eachListing.images[0]}
-                  alt={eachListing.title}
-                />
-                <Carousel.Caption>
-                  <h3>{eachListing.title}</h3>
-                  <p>${eachListing.price}</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-            );
-          })}
-        </Carousel>
-
+      <Carousel className="imgCarousel">
+        {latestListings.map(eachListing => {
+          return (
+            <Carousel.Item key={eachListing._id}>
+              <img
+                className="d-block w-100 carouselImg"
+                src={eachListing.images[0]}
+                alt={eachListing.title}
+              />
+              <Carousel.Caption>
+                <h3>{eachListing.title}</h3>
+                <p>${eachListing.price}</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          );
+        })}
+      </Carousel>
     );
   }
 }

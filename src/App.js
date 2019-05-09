@@ -31,7 +31,7 @@ class App extends Component {
   logoutClick() {
     axios
       .delete(
-        "http://localhost:3001/api/logout",
+        `${process.env.REACT_APP_API_URL}/logout`,
         { withCredentials: true } // FORCE axios to send cookies across domains
       )
       .then(() => {

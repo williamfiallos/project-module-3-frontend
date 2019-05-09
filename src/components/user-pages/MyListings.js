@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -16,7 +16,7 @@ class MyListings extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3001/api/my-listings", { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/my-listings`, { withCredentials: true })
       .then(responseFromApi => {
         this.setState({
           myListings: [
@@ -32,55 +32,61 @@ class MyListings extends Component {
       });
   }
 
-  deleteListing(index){
-    const {myListings} = this.state;
+  deleteListing(index) {
+    const { myListings } = this.state;
     const id = myListings[index]._id;
 
-    if(myListings[index].postType === "car"){
-
+    if (myListings[index].postType === "car") {
       axios
-      .delete(`http://localhost:3001/api/delete-car/${id}`, { withCredentials: true })
-      .then(responseFromApi => {
-          this.props.history.push('/phone-list'); 
-      })
-      .catch(err => console.log(err));
-
-    }else {
+        .delete(`${process.env.REACT_APP_API_URL}/delete-car/${id}`, {
+          withCredentials: true
+        })
+        .then(responseFromApi => {
+          this.props.history.push("/phone-list");
+        })
+        .catch(err => console.log(err));
+    } else {
       axios
-      .delete(`http://localhost:3001/api/delete-house/${id}`, { withCredentials: true })
-      .then(responseFromApi => {
-          this.props.history.push('/phone-list'); 
-      })
-      .catch(err => console.log(err));
+        .delete(`${process.env.REACT_APP_API_URL}/delete-house/${id}`, {
+          withCredentials: true
+        })
+        .then(responseFromApi => {
+          this.props.history.push("/phone-list");
+        })
+        .catch(err => console.log(err));
     }
-}
-
-
+  }
 
   render() {
     console.log("new state: ", this.state.myListings);
     const { myListings } = this.state;
 
-
     return (
       <section>
         <div className="text-center myListingTitle">
-        <h1> My Listings</h1>
+          <h1> My Listings</h1>
         </div>
 
-        {myListings.map((eachListings,i) => {
+        {myListings.map((eachListings, i) => {
           return (
             <section key={i}>
               <Container className="myListings">
                 <Row>
                   <Col className="text-right">
-                    <Link to={{
-                      pathname:`/myaccount/editlisting/${eachListings._id}`, 
-                      state: {listings: this.state.myListings, index: {i}} 
-                    }} >
+                    <Link
+                      to={{
+                        pathname: `/myaccount/editlisting/${eachListings._id}`,
+                        state: { listings: this.state.myListings, index: { i } }
+                      }}
+                    >
                       <button className="button">Edit</button>
                     </Link>
-                    <button onClick={() => this.deleteListing(i)} className="button">Delete</button>
+                    <button
+                      onClick={() => this.deleteListing(i)}
+                      className="button"
+                    >
+                      Delete
+                    </button>
                   </Col>
                   <Col>
                     <p>{eachListings.title}</p>
