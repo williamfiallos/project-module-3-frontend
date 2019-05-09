@@ -55,7 +55,7 @@ class CarPostAd extends Component {
     }
 
     axios
-      .post("http://localhost:3001/api/upload-file", uploadData, {
+      .post(`${process.env.REACT_APP_API_URL}/upload-file`, uploadData, {
         withCredentials: true
       })
       .then(response => {
