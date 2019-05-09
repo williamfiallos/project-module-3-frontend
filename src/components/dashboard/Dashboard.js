@@ -20,8 +20,8 @@ class Dashboard extends Component {
             <Col className="shadowBG">
               <h1 className="boxHeader">My Account</h1>
               <hr />
-              <Link to={"/myaccount/mylistings"}> 
-                  <p>My Listings</p> 
+              <Link to={"/myaccount/mylistings"}>
+                <p>My Listings</p>
               </Link>
               <p>Saved Postings</p>
               <p>Account information</p>

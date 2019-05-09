@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
 class HousePostAd extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class HousePostAd extends Component {
       totalBathrooms: "",
       parking: "",
       petsAllowed: "",
-      isSubmitSuccessfull: false,
+      isSubmitSuccessfull: false
     };
   }
 
@@ -29,7 +29,7 @@ class HousePostAd extends Component {
   handleSubmit(event) {
     event.preventDefault();
     axios
-      .post("http://localhost:3001/api/house-post", this.state, {
+      .post(`${process.env.REACT_APP_API_URL}/house-post`, this.state, {
         withCredentials: true
       })
       .then(responseFromServer => {
@@ -50,7 +50,7 @@ class HousePostAd extends Component {
     }
 
     axios
-      .post("http://localhost:3001/api/upload-file", uploadData, {
+      .post(`${process.env.REACT_APP_API_URL}/upload-file`, uploadData, {
         withCredentials: true
       })
       .then(response => {
@@ -62,9 +62,9 @@ class HousePostAd extends Component {
   }
 
   render() {
-      if (this.state.isSubmitSuccessful) {
-          return <Redirect to="/" />
-      }
+    if (this.state.isSubmitSuccessful) {
+      return <Redirect to="/" />;
+    }
     return (
       <section>
         <form onSubmit={event => this.handleSubmit(event)}>
@@ -139,7 +139,7 @@ class HousePostAd extends Component {
             value={this.state.totalBathrooms}
             placeholder="2"
           />
-       
+
           <br />
           <label> Parking Spaces: </label>
           <input

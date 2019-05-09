@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from 'react-router-dom'
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 class CarPostAd extends Component {
@@ -18,7 +18,7 @@ class CarPostAd extends Component {
       paintColor: "",
       transmission: "",
       type: "",
-      isSubmitSuccesfull: false,
+      isSubmitSuccesfull: false
     };
   }
 
@@ -32,11 +32,11 @@ class CarPostAd extends Component {
   handleSubmit(event) {
     event.preventDefault();
     axios
-      .post("http://localhost:3001/api/car-post", this.state, {
+      .post(`${process.env.REACT_APP_API_URL}/car-post`, this.state, {
         withCredentials: true
       })
       .then(responseFromServer => {
-        this.setState({isSubmitSuccessful: true});
+        this.setState({ isSubmitSuccessful: true });
       })
       .catch(err => {
         if (err.response && err.response.data)
