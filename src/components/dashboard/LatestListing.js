@@ -33,7 +33,7 @@ class LatestListing extends Component {
               <Carousel.Item
               key={eachListing._id}>
                 <img
-                  className="d-block w-100"
+                  className="d-block w-100 carouselImg"
                   src={eachListing.images[0]}
                   alt={eachListing.title}
                 />

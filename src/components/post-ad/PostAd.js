@@ -23,7 +23,7 @@ class PostAd extends Component {
     
     render() { 
         return ( 
-            <section>
+            <section className="postForm">
                 <form>
                     <select value={ this.state.adType } name="adType" onChange= { event => this.genericSync(event) } >
                         <option value=""  > </option>

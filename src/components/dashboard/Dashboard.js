@@ -18,7 +18,7 @@ class Dashboard extends Component {
         <Container>
           <Row>
             <Col className="shadowBG">
-              <h1>My Account</h1>
+              <h1 className="boxHeader">My Account</h1>
               <hr />
               <Link to={"/myaccount/mylistings"}> 
                   <p>My Listings</p> 
@@ -28,7 +28,7 @@ class Dashboard extends Component {
               <p>Account Settings</p>
             </Col>
             <Col className="shadowBG">
-              <h1>Community</h1>
+              <h1 className="boxHeader">Community</h1>
               <hr />
               <p>Activities</p>
               <p>Artists</p>
@@ -38,7 +38,7 @@ class Dashboard extends Component {
               <p>Groups</p>
             </Col>
             <Col className="shadowBG">
-              <h1>Personal</h1>
+              <h1 className="boxHeader">Personal</h1>
               <hr />
               <p>Flatmate wanted</p>
               <p>Road trips seeking</p>
@@ -48,9 +48,9 @@ class Dashboard extends Component {
               <p>Office space needed</p>
             </Col>
           </Row>
-          <Row>
+          <Row className="bottomBox">
             <Col className="shadowBG">
-              <h1>For Sale</h1>
+              <h1 className="boxHeader">For Sale</h1>
               <hr />
               <p>Antiques</p>
               <p>Appliances</p>
@@ -68,7 +68,7 @@ class Dashboard extends Component {
               <p>Cellphones</p>
             </Col>
             <Col className="shadowBG">
-              <h1>Housing</h1>
+              <h1 className="boxHeader">Housing</h1>
               <hr />
               <p>Apartments</p>
               <p>Commercial</p>
@@ -85,7 +85,7 @@ class Dashboard extends Component {
               <p>Sublets</p>
             </Col>
             <Col className="shadowBG">
-              <h1>Jobs</h1>
+              <h1 className="boxHeader">Jobs</h1>
               <hr />
               <p>Accounting</p>
               <p>Art / Design</p>

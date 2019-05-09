@@ -35,7 +35,7 @@ class AllHouses extends Component {
         const {allHouses} = this.state
         return ( 
             <Container>
-                <Row>
+                <Row className="allListings">
                     {allHouses.map((eachHouse) => {
                         return (
                             <Col>

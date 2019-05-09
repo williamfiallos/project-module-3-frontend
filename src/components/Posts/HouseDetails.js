@@ -30,7 +30,7 @@ class HouseDetails extends Component {
         const { title, images, address, houseType, squareFeet, totalRooms, totalBathrooms, parking, petsAllowed, price, description } = this.state
         return ( 
             <Container>
-                <Row>
+                <Row className="detailListing">
                     <Col>
                         <p>{title}</p>
                         {
@@ -47,9 +47,9 @@ class HouseDetails extends Component {
                     <Col>
                         <div className="text-center">
                             <p>${price}</p>
-                            <button>Contact the owner</button>
+                            <button className="button">Contact the owner</button>
                             <br />
-                            <button>Add to favorite</button>
+                            <button className="button">Add to favorite</button>
                             <p>Key Details</p>
                         </div>
                         <Row>

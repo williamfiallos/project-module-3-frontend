@@ -64,23 +64,23 @@ class MyListings extends Component {
 
     return (
       <section>
-        <div className="text-center">
+        <div className="text-center myListingTitle">
         <h1> My Listings</h1>
         </div>
 
         {myListings.map((eachListings,i) => {
           return (
             <section key={i}>
-              <Container>
+              <Container className="myListings">
                 <Row>
                   <Col className="text-right">
                     <Link to={{
                       pathname:`/myaccount/editlisting/${eachListings._id}`, 
                       state: {listings: this.state.myListings, index: {i}} 
                     }} >
-                      <button>Edit</button>
+                      <button className="button">Edit</button>
                     </Link>
-                    <button onClick={() => this.deleteListing(i)}>Delete</button>
+                    <button onClick={() => this.deleteListing(i)} className="button">Delete</button>
                   </Col>
                   <Col>
                     <p>{eachListings.title}</p>

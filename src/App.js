@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from "react-bootstrap";
+import axios from 'axios';
 
 import { Switch, NavLink, Route } from "react-router-dom";
 
@@ -27,36 +28,59 @@ class App extends Component {
     this.setState({ currentUser: userInfo }); // update the state of currentUser with userInfo
   }
 
+  logoutClick() {
+    axios
+      .delete(
+        "http://localhost:3001/api/logout",
+        { withCredentials: true } // FORCE axios to send cookies across domains
+      )
+      .then(() => {
+        this.syncCurrentUser(null);
+      })
+      .catch(err => {
+        console.log("Logout ERROR", err);
+        alert("Sorry! Something went wrong.");
+      });
+  }
+
+
   render() {
     return (
       <div>
         <div>
           {this.state.currentUser ? (
-              <Row>
-                <Col>
-                  <NavLink to="/dashboard"> Craigslist </NavLink>
-                </Col>
-                <Col>
-                  <div className="text-right">
-                    <button>My account</button>
-                    <NavLink to="/postad">
-                      <button>Post an Ad</button>
-                    </NavLink>
-                  </div>
-                </Col>
-              </Row>
+            <Row className="navBarStyle">
+              <Col>
+                <NavLink to="/dashboard"> Craigslist </NavLink>
+              </Col>
+              <Col>
+                <div className="text-right">
+                  <button className="button">My account</button>
+                  <NavLink to="/postad">
+                    <button className="button">Post an Ad</button>
+                  </NavLink>
+                  <button onClick={() => this.logoutClick()} className="button">Logout</button>
+                </div>
+              </Col>
+            </Row>
           ) : (
-              <Row>
-                <Col>
-                  <NavLink to="/dashboard"> Craigslist </NavLink>
-                </Col>
-                <Col>
-                  <div className="text-right">
-                    <NavLink to="/signup"> Sign Up </NavLink>
-                    <NavLink to="/login"> Log In </NavLink>
-                  </div>
-                </Col>
-              </Row>
+            <Row className="navBarStyle">
+              <Col>
+                <NavLink to="/dashboard"> Craigslist </NavLink>
+              </Col>
+              <Col>
+                <div className="text-right">
+                  <NavLink to="/signup">
+                    {" "}
+                    <button className="button"> Sign Up </button>
+                  </NavLink>
+                  <NavLink to="/login">
+                    {" "}
+                    <button className="button">Log In </button>
+                  </NavLink>
+                </div>
+              </Col>
+            </Row>
           )}
         </div>
 
