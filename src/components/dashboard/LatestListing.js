@@ -12,10 +12,11 @@ class LatestListing extends Component {
 
   componentDidMount() {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/all-listings`, {
+      .get(process.env.REACT_APP_API_URL + "/all-listings", {
         withCredentials: true
       })
       .then(responseFromApi => {
+        console.log('front latest listings: ', responseFromApi)
         this.setState({ latestListings: responseFromApi.data });
       })
       .catch(err => {

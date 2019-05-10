@@ -13,7 +13,7 @@ class Dashboard extends Component {
   render() {
     return (
       <section>
-        <LatestListing />
+        {/* <LatestListing /> */}
 
         <Container>
           <Row>
