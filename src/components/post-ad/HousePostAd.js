@@ -110,7 +110,7 @@ class HousePostAd extends Component {
             type="text"
             onChange={event => this.genericSync(event)}
             value={this.state.houseType}
-            placeholder="apt/condo, efficiency, studio, townhouse"
+            placeholder="house, apartment, condo, studio, townhouse"
           />
           <br />
           <label> Square Footage: </label>

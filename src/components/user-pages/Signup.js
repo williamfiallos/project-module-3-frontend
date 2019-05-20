@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
+
 
 // axios calls the backend routes, like so: backend /api/signup", axios.CRUD
 import axios from "axios";

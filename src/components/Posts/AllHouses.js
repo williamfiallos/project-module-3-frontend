@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React, { Component } from "./node_modules/react";
+import axios from "./node_modules/axios";
+import { Link } from "./node_modules/react-router-dom";
 
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import Container from "./node_modules/react-bootstrap/Container";
+import Row from "./node_modules/react-bootstrap/Row";
+import Col from "./node_modules/react-bootstrap/Col";
 
 class AllHouses extends Component {
   constructor(props) {
