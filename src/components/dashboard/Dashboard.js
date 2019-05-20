@@ -13,7 +13,7 @@ class Dashboard extends Component {
   render() {
     return (
       <section>
-        {/* <LatestListing /> */}
+        <LatestListing />
 
         <Container>
           <Row>
@@ -72,7 +72,7 @@ class Dashboard extends Component {
               <hr />
               <p>Apartments</p>
               <p>Commercial</p>
-              <Link to={"/foresale/housing"}>
+              <Link to={"/forsale/housing"}>
                 <p>Housing</p>
               </Link>
               <p>Housing Swap</p>

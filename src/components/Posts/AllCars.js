@@ -27,7 +27,7 @@ class AllCars extends Component {
   }
 
   render() {
-    console.log("All Cars", this.state.allCars);
+    // console.log("All Cars", this.state.allCars);
     const { allCars } = this.state;
     return (
       <section>

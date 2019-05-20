@@ -16,7 +16,7 @@ class LatestListing extends Component {
         withCredentials: true
       })
       .then(responseFromApi => {
-        console.log('front latest listings: ', responseFromApi)
+        // console.log('front latest listings: ', responseFromApi)
         this.setState({ latestListings: responseFromApi.data });
       })
       .catch(err => {

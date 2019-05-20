@@ -76,7 +76,7 @@ class App extends Component {
                   </NavLink>
                   <NavLink to="/login">
                     {" "}
-                    <button className="button">Log In </button>
+                    <button className="button"> Log In </button>
                   </NavLink>
                 </div>
               </Col>

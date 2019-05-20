@@ -42,7 +42,7 @@ class MyListings extends Component {
           withCredentials: true
         })
         .then(responseFromApi => {
-          this.props.history.push("/phone-list");
+          this.props.history.push("/cars-list");
         })
         .catch(err => console.log(err));
     } else {
@@ -51,7 +51,7 @@ class MyListings extends Component {
           withCredentials: true
         })
         .then(responseFromApi => {
-          this.props.history.push("/phone-list");
+          this.props.history.push("/house-list");
         })
         .catch(err => console.log(err));
     }
@@ -64,7 +64,7 @@ class MyListings extends Component {
     return (
       <section>
         <div className="text-center myListingTitle">
-          <h1> My Listings</h1>
+          <h1> My Listings </h1>
         </div>
 
         {myListings.map((eachListings, i) => {
