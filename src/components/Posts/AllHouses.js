@@ -28,7 +28,7 @@ class AllHouses extends Component {
   }
 
   render() {
-    console.log("All Houses", this.state.allHouses); // <= test if the database was sending the right information, good.
+    // console.log("All Houses", this.state.allHouses); // <= test if the database was sending the right information, good.
     const { allHouses } = this.state;
     return (
       <Container>
